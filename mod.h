@@ -1,3 +1,5 @@
+//#include <intrin.h>
+//#include <immintrin.h>
 void mod(uint32_t *x, uint32_t div){
 	uint32_t bita,n=*x,c=1,mask,mod,num,coeff;
 	_BitScanReverse(&bita,div);
@@ -11,8 +13,8 @@ void mod(uint32_t *x, uint32_t div){
 		coeff=(1<<(bita+1))-div;
 		n=(coeff*num)+mod;
 		//printf("mask=%d\n mod=%d\n num=%d\n coeff=%d\n n=%d\n\n", mask,mod,num,coeff,n);
-		//printf("%d\n", n);
-		if(n<=2*div){c=0;n-=div;if(n>(0-div)){n+=div;}}
+		printf("%d\n", n);
+		if(n<=2*div && n>div){c=0;n-=div;}
 	}
 	if(n==div){n=0;}
 
